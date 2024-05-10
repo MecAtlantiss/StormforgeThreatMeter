@@ -23,7 +23,7 @@ When you log in, you should see a black frame near the middle of your screen. Yo
 `/stm` This will give you a list of the available commands.  
 `/stm lock` This will toggle between locking and unlocking the meter's frame.  
 `/stm warnThreshold` This allows you to change the threat threshold at which a warning sound is played. You could, for example, type `/stm warnThreshold 90` to change the threshold to 90%. Players in melee range will pull aggro when they're at 110% of the current aggro target's threat and players out of melee range will pull at 130% threat. By default, the addon is set to play a sound when you exceed 115% threat. The sound will not play if you're on a character specialized to be a tank. You can also type `/stm warnThreshold 0` to disable the sound from ever playing.  
-`/stm showClassIcons` This will toggle between showing or hiding class icons next to the threat bars.
+`/stm toggleClassIcons` This will toggle between showing or hiding class icons next to the threat bars.
 
 #### What the threat bar colors mean  
 ---
