@@ -66,7 +66,8 @@ meter.title:SetText("Stormforge Threat Meter (/stm)")
 
 --resize button
 meter.resizeButton = CreateFrame("Button", nil, meter)
-meter.resizeButton:SetSize(16 / scale, left_margin / scale)
+meter.resizeButton:SetWidth(16 / scale)
+meter.resizeButton:SetHeight(16 / scale)
 meter.resizeButton:SetPoint("BOTTOMRIGHT")
 meter.resizeButton:SetNormalTexture("Interface\\AddOns\\StormforgeThreatMeter\\media\\resize.tga")
 meter.resizeButton:SetScript("OnMouseDown", function(self, button)
@@ -124,7 +125,8 @@ local function createThreatBar(y)
 
 	bar.icon = bar:CreateTexture(nil, "OVERLAY")
 	bar.icon:SetPoint("TOPLEFT", -left_margin / scale, 0)
-	bar.icon:SetSize(bar_height / scale, bar_height / scale)
+	bar.icon:SetHeight(bar_height / scale)
+	bar.icon:SetWidth(bar_height / scale)
 	bar.icon:SetTexCoord(0.08, 0.92, 0.08, 0.92) --slight zoom in
 	bar.icon:Hide()
 
