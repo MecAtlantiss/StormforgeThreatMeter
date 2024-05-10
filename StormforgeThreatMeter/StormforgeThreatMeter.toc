@@ -1,0 +1,11 @@
+## Interface: 20400
+## Title: StormforgeThreatMeter
+## Version: 1.0
+## Author: Mec
+## Notes: A threat meter for the Stormforge TBC private server.
+## SavedVariables: STM_CONFIG
+
+Libs\LibStub\LibStub.lua
+Libs\StormforgeThreatLib\StormforgeThreatLib.lua
+
+StormforgeThreatMeter.lua
