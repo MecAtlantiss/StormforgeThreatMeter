@@ -42,13 +42,13 @@ Stormforge CHAT_MSG_ADDON documentation
 These CHAT_MSG_ADDON events are sent out every second to the client from the Stormforge server.
 Be careful, because the GUIDs from the server are lowercase whereas the WoW client's in-game UnitGUID() function is uppercase.
 
-SMSG_HIGHEST_THREAT_UPDATE -> sends threat list for a given creature with current victim (sent when primary target changes)
-SMSG_THREAT_UPDATE  -> sends threat list for a given creature (sent when any changes occur) [400ms frequency limit?]. Current victim's unit name is appended with an asterisk.
-SMSG_THREAT_REMOVE -> sends guid of a player removed from a given creature's threat list
-SMSG_THREAT_CLEAR -> sends information that given creature's threat list has been wiped
+SMSG_HIGHEST_THREAT_UPDATE -> sends threat list for a given npc (sent when current victim changes). Current victim's unit name is appended with an asterisk.
+SMSG_THREAT_UPDATE  -> sends threat list for a given npc (sent when any changes occur) [1sec frequency limit]. Current victim's unit name is appended with an asterisk.
+SMSG_THREAT_REMOVE -> sends guid of a unit who has been removed from a given npc's threat list
+SMSG_THREAT_CLEAR -> sent when an npc's threat list has been wiped
 ]]
 
-local version = 1.0
+local version = 1.2
 local STL = LibStub:NewLibrary("StormforgeThreatLib", version)
 
 if not STL then return end
@@ -75,7 +75,7 @@ function STL.split(str)
 	return list
 end
 
-function STL.parseThreatUpdateMsg(msg)
+function STL.parseThreatUpdateMsg(msg, msg_type)
 	--threat_data: {npcGUID, npcUnitName, unit1GUID, unit1Name, unit1Threat, unit2GUID, unit2Name, unit2Threat, ...}
 	local threat_data = STL.split(msg)
 	local npcGUID = threat_data[1]
@@ -92,6 +92,10 @@ function STL.parseThreatUpdateMsg(msg)
 			--this unit has aggro
 			unitName = stringsub(threat_data[i + 1], 1, -2)
 			threatTable[npcGUID].GUIDwithAggro = unitGUID
+
+			if msg_type == "SMSG_HIGHEST_THREAT_UPDATE" then
+				threatTable[npcGUID].lastAggroSwitchTime = GetTime()
+			end
 		else
 			unitName = threat_data[i + 1]
 		end
@@ -116,25 +120,6 @@ function STL.parseThreatUpdateMsg(msg)
 	GUIDsByThreatRank = nil
 end
 
-function STL.parseHighestThreatUpdateMsg(msg)
-	--threat_data: {npcGUID, npcUnitName, unitGUID, unitName, unitThreat}
-	local threat_data = STL.split(msg)
-	local npcGUID = threat_data[1]
-	local npcUnitName = threat_data[2]
-
-	if not threatTable[npcGUID] then threatTable[npcGUID] = {} end
-	if not threatTable[npcGUID].unitName then threatTable[npcGUID].unitName = npcUnitName end
-
-	local unitGUID, unitName
-	unitGUID = threat_data[3]
-	unitName = stringsub(threat_data[4], 1, -2)
-	--unitName = threat_data[4]
-	if not threatTable[npcGUID][unitGUID] then threatTable[npcGUID][unitGUID] = {} end
-	if not threatTable[npcGUID][unitGUID].unitName then threatTable[npcGUID][unitGUID].unitName = unitName end
-	threatTable[npcGUID].GUIDwithAggro = unitGUID
-	threatTable[npcGUID].lastAggroSwitchTime = GetTime()
-end
-
 function STL.parseThreatClear(msg)
 	local npcGUID = STL.split(msg)[1]
 	if threatTable[npcGUID] then
@@ -153,10 +138,8 @@ end
 
 function STL.frame:OnEvent(event, ...)
 	if event == "CHAT_MSG_ADDON" then
-		if arg1 == "SMSG_THREAT_UPDATE" then
-			STL.parseThreatUpdateMsg(arg2)
-		elseif arg1 == "SMSG_HIGHEST_THREAT_UPDATE" then
-			STL.parseHighestThreatUpdateMsg(arg2)
+		if arg1 == "SMSG_THREAT_UPDATE" or arg1 == "SMSG_HIGHEST_THREAT_UPDATE" then
+			STL.parseThreatUpdateMsg(arg2, arg1)
 		elseif arg1 == "SMSG_THREAT_CLEAR" then
 			STL.parseThreatClear(arg2)
 		elseif arg1 == "SMSG_THREAT_REMOVE" then

@@ -331,7 +331,6 @@ function meter:OnEvent(event, ...)
 	if event == "ADDON_LOADED" then
 		if STM_CONFIG["isLocked"] then lockTimers() else unlockTimers() end
 		max_currently_visible_bars = calculateMaxVisibleBars()
-		--meter:SetHeight((bar_height + bar_padding + 0.05) / scale * (max_currently_visible_bars + 1))
 
 		if STM_CONFIG["isLocked"] == nil then STM_CONFIG["isLocked"] = true end
 		if STM_CONFIG["showClassIcons"] == nil then STM_CONFIG["showClassIcons"] = true end
