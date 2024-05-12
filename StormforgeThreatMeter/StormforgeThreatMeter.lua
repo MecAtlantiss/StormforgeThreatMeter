@@ -362,6 +362,8 @@ function meter:OnEvent(event, ...)
 			if not meter.GUIDwithAggro then return end
 			if meter.GUIDwithAggro ~= stringlower(UnitGUID("player")) then return end
 			if playerIsTank() then return end
+			if not isInGroup() then return end
+			if GetTime() - threatTable[meter.targetGUID].lastAggroSwitchTime <= 2.5 then return end
 
 			PlaySoundFile(sound_warning_file)
 		end

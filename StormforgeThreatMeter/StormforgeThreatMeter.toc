@@ -1,6 +1,6 @@
 ## Interface: 20400
 ## Title: StormforgeThreatMeter
-## Version: 1.3
+## Version: 1.4
 ## Author: Mec
 ## Notes: A threat meter for the Stormforge TBC private server.
 ## SavedVariables: STM_CONFIG
