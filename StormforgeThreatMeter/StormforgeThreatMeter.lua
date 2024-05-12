@@ -271,12 +271,17 @@ local function playerIsTank()
 	return false
 end
 
+local function isInGroup()
+	if GetNumPartyMembers() > 0 or GetNumRaidMembers() > 0 then return true else return false end
+end
+
 local function handleSoundWarning()
 	if STM_CONFIG["warnThreshold"] == 0 then return end
 	if GetTime() - meter.soundWarnedTime < 10 then return end
 	if not threatTable[meter.targetGUID].lastAggroSwitchTime then return end
 	if not threatTable[meter.targetGUID][stringlower(UnitGUID("player"))] then return end
 	if not threatTable[meter.targetGUID].GUIDsByThreatRank then return end
+	if not isInGroup() then return end
 	if #threatTable[meter.targetGUID].GUIDsByThreatRank <= 4 then return end
 	if not meter.GUIDwithAggro or not meter.GUIDwithAggroThreat then return end
 	if meter.GUIDwithAggroThreat < 5 then return end
