@@ -1,16 +1,16 @@
 # Stormforge Threat Meter (STM)
 A threat meter addon for Stormforge TBC private servers.
 
-<span style="color: #f03c15"> This addon only works on Stormforge TBC servers.</span>
+<span style="color: #f03c15">This addon only works on Stormforge TBC servers.</span>
 
 # Why STM over Omen/DTM?
-Unlike Omen and DTM, which have to read the player's combat log events to estimate threat, Stormforge Threat Meter receives accurate threat data from the game server. This makes STM better able to reliably handle events that Omen and DTM tend to struggle with, such as threat resets on bosses (e.g. Illidan phase 3/4/5). The addon is also less computationally intensive than DTM, so players who may have experienced lag on fights in situations where there are many mobs being fought will not have that issue with STM.
+Unlike Omen and DTM, which have to read the player's combat log events to estimate threat, Stormforge Threat Meter receives accurate threat data from the game server. This makes STM better able to reliably handle events that Omen and DTM tend to struggle with, such as threat resets on bosses (e.g. Illidan phase 3/4/5). Unlike Omen, this addon doesn't require other players in your party/raid to also have it installed. The addon is also less computationally intensive than DTM, so players won't experience lag on fights with many mobs.
 
 # Installation
 
 Step 1. [Download the ZIP file of the lastest release here.](https://github.com/MecAtlantiss/StormforgeThreatMeter/releases/latest)
 
-Step 2. Inside the ZIP file you've just downloaded is a folder named "StormforgeThreatMeter-1.2". Inside of that folder is another folder named "StormforgeThreatMeter" (without a version number in the name). Extract this "StormforgeThreatMeter" folder from the ZIP file and put it into your `Interface/Addons/` folder in your World of Warcraft directory.
+Step 2. Inside the ZIP file you've just downloaded is a folder named "StormforgeThreatMeter-1.3". Inside of that folder is another folder named "StormforgeThreatMeter" (without a version number in the name). Extract this "StormforgeThreatMeter" folder from the ZIP file and put it into your `Interface/Addons/` folder in your World of Warcraft directory.
 
 If the addon doesn't appear in-game, then you likely put the wrong folder into your Addons folder.
 
