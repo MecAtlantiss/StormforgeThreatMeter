@@ -3,7 +3,7 @@
 STM_CONFIG = {
 	isLocked = false,
 	showClassIcons = true,
-	warnThreshold = 115
+	warnThreshold = 90
 }
 
 local STL = LibStub:GetLibrary("StormforgeThreatLib")
@@ -277,7 +277,7 @@ local function handleSoundWarning()
 	if not threatTable[meter.targetGUID].lastAggroSwitchTime then return end
 	if not threatTable[meter.targetGUID][stringlower(UnitGUID("player"))] then return end
 	if not threatTable[meter.targetGUID].GUIDsByThreatRank then return end
-	if #threatTable[meter.targetGUID].GUIDsByThreatRank < 2 then return end
+	if #threatTable[meter.targetGUID].GUIDsByThreatRank <= 4 then return end
 	if not meter.GUIDwithAggro or not meter.GUIDwithAggroThreat then return end
 	if meter.GUIDwithAggroThreat < 5 then return end
 	if playerIsTank() then return end
