@@ -10,7 +10,7 @@ Unlike Omen and DTM, which have to read the player's combat log events to estima
 
 Step 1. [Download the ZIP file of the lastest release here.](https://github.com/MecAtlantiss/StormforgeThreatMeter/releases/latest)
 
-Step 2. Inside the ZIP file you've just downloaded is a folder named "StormforgeThreatMeter-1.4". Inside of that folder is another folder named "StormforgeThreatMeter" (without a version number in the name). Extract this "StormforgeThreatMeter" folder from the ZIP file and put it into your `Interface/Addons/` folder in your World of Warcraft directory.
+Step 2. Inside the ZIP file you've just downloaded is a folder named "StormforgeThreatMeter-1.5". Inside of that folder is another folder named "StormforgeThreatMeter" (without a version number in the name). Extract this "StormforgeThreatMeter" folder from the ZIP file and put it into your `Interface/Addons/` folder in your World of Warcraft directory.
 
 If the addon doesn't appear in-game, then you likely put the wrong folder into your Addons folder.
 
