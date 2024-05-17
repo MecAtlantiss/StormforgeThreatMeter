@@ -16,7 +16,7 @@ If the addon doesn't appear in-game, then you likely put the wrong folder into y
 
 # How to use
 
-When you log in, you should see a black frame near the middle of your screen. You drag this around with your left mouse. When the frame is unlocked, you can re-size it by dragging the bottom left corner around.
+When you log in, you should see a black frame near the middle of your screen. You drag this around with your left mouse. When the frame is unlocked, you can re-size it by dragging the bottom right corner around.
 
 #### You also can use the following chat commands while in-game
 ---
