@@ -14,7 +14,7 @@ local stringsub, stringfind, stringlower, stringformat, min, floor = string.sub,
 
 local meter = CreateFrame("Frame", "SFTM_Frame", UIParent)
 local scale = GetCVar("uiScale")
-local font_path = "Interface\\AddOns\\StormforgeThreatMeter\\media\\skurri.ttf"
+local font_path = "Fonts\\skurri.ttf"
 local font_size = 10
 local sound_warning_file = "Sound\\Spells\\SeepingGaseous_Fel_Nova.wav"
 local min_bars = 5
