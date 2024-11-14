@@ -13,7 +13,7 @@ local stringsub, stringfind, stringlower, stringformat, min, floor = string.sub,
 	.format, math.min, math.floor
 
 local meter = CreateFrame("Frame", "SFTM_Frame", UIParent)
-local scale = GetCVar("uiScale")
+local scale = GetCVar("uiScale") or 1.0
 local font_path = "Fonts\\ARIALN.ttf"
 local font_size = 10
 local sound_warning_file = "Sound\\Spells\\SeepingGaseous_Fel_Nova.wav"
