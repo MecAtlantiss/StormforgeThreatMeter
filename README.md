@@ -1,7 +1,7 @@
 # Stormforge Threat Meter (STM)
 A threat meter addon for Stormforge TBC private servers.
 
-<span style="color: #f03c15">This addon only works on Stormforge TBC servers.</span>
+<span style="color: #f03c15">This addon only works on Stormforge TBC servers on their 2.4.3 client.</span>
 
 # Why STM over Omen/DTM?
 Unlike Omen and DTM, which have to read the player's combat log events to estimate threat, Stormforge Threat Meter receives accurate threat data from the game server. This makes STM better able to reliably handle events that Omen and DTM tend to struggle with, such as threat resets on bosses (e.g. Illidan phase 3/4/5). Unlike Omen, this addon doesn't require other players in your party/raid to also have it installed. The addon is also less computationally intensive than DTM, so players won't experience lag on fights with many mobs.
